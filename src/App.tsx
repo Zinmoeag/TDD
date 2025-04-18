@@ -1,11 +1,22 @@
-import { useState } from "react";
-import First from "./First";
 import "./App.css";
+import CustomThemeProvider from "./shared/provider/ThemeProvider";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+
+const router = createRouter({ routeTree })
+
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <First />;
+  return (
+    <CustomThemeProvider>
+      <RouterProvider router={router} />
+    </CustomThemeProvider>
+  )
 }
 
 export default App;
