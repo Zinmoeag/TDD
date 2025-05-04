@@ -3,8 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "./theme";
+import App from "./App";
 
 const router = createRouter({ routeTree });
 
