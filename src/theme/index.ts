@@ -1,26 +1,15 @@
-import { createTheme } from "@mui/material";
+import { darkTheme, greenTheme, lightTheme } from "./scheme";
 
-export const theme = createTheme({
-  colorSchemes: {
-    light: {
-      palette: {
-        primary: {
-          main: "#ff0000",
-        },
-        secondary: {
-          main: "#00ff00",
-        },
-      },
-    },
-    dark: {
-      palette: {
-        primary: {
-          main: "#YYYYYYY",
-        },
-        secondary: {
-          main: "#ffffff",
-        },
-      },
-    },
-  },
-});
+
+// register theme
+export const appThemes = {
+    dark: darkTheme,
+    light: lightTheme,
+    green: greenTheme
+}
+
+export type AppTheme = keyof typeof appThemes;
+
+export function getTheme(theme: keyof typeof appThemes) {
+    return appThemes[theme];
+}
